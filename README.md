@@ -4,11 +4,15 @@
 
 This is a 2D Tic Tac Toe game developed using **Unity 6 (6000.1.1f1)**. It offers two gameplay modes: **1 vs 1 (Local Multiplayer)** and **1 vs PC (Single Player)**. The game features a clean user interface built with Unity's UI Elements, engaging background music, and sound effects for tile selection, winning, and drawing. The game uses Scriptable Objects to manage tile data, ensuring modularity and scalability.
 
+## Play Online
+
+The game is live on itch.io! Try it now: [https://strange-erox.itch.io/tic-tac-toe](https://strange-erox.itch.io/tic-tac-toe)
+
 ## Features
 
 - **Game Modes**:
   - **Local Multiplayer**: Two players take turns on the same device to compete.
-  - **Single Player**: Play against an AI opponent with a simple random tile selection strategy.
+  - **Single Player**: Play against an AI opponent using the Minimax algorithm for optimal, challenging move selection.
 - **User Interface**:
   - A main menu with options to select game mode (1 vs 1, 1 vs PC) or exit the game.
   - A 3x3 grid where players click to place their symbols (O or X).
@@ -33,7 +37,7 @@ Below is an overview of the key scripts used in the project:
 - **LevelManager.cs**: Controls scene navigation (Main Menu, Local Multiplayer, Single Player) and game exit functionality.
 - **GameStatus.cs**: Singleton class to manage game state, tile interactions, and UI updates (e.g., enabling/disabling tiles, highlighting winning cells).
 - **GameLogic.cs**: Core logic for the 1 vs 1 mode, including turn management, winner detection, and draw conditions.
-- **GameLogicAI.cs**: Extends `GameLogic` for the 1 vs PC mode, adding AI turn logic with random tile selection.
+- **GameLogicAI.cs**: Extends `GameLogic` for the 1 vs PC mode, implementing the Minimax algorithm for intelligent AI move selection.
 
 ## How to Play
 
@@ -42,7 +46,7 @@ Below is an overview of the key scripts used in the project:
    - Select **Exit** to quit the game.
 2. **Gameplay**:
    - Players take turns clicking on an empty cell in the 3x3 grid to place their symbol (O or X).
-   - In Single Player mode, the AI selects a random empty tile after the player's turn (with a 2-second delay).
+   - In Single Player mode, the AI uses the Minimax algorithm to select optimal moves, aiming to win or force a draw (with a 1-second delay).
    - The game ends when a player wins (three matching symbols in a row, column, or diagonal) or when all tiles are filled (draw).
    - Winning cells are highlighted, and the result is displayed on the screen.
 3. **Audio Feedback**:
@@ -71,7 +75,7 @@ Below is an overview of the key scripts used in the project:
 
 ## Future Improvements
 
-- Add difficulty levels for the AI (e.g., minimax algorithm for smarter moves).
+- Add difficulty levels for the AI (e.g., mixing random moves with Minimax for easier modes).
 - Implement a restart button to reset the game without returning to the main menu.
 - Enhance the UI with animations for tile placement and win conditions.
 - Add support for online multiplayer.
